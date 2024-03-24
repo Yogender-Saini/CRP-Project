@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim</title>
+    <style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+nav {
+    background-color: #2980b9;
+    color: #ecf0f1;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 0.8s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+section {
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: center;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.menu-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-links a {
+    margin: 0 20px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-links.active {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: 20px;
+        color: #ecf0f1;
+    }
+
+    .menu-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #2980b9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: slideInDown 0.8s ease;
+    }
+
+    .menu-links a {
+        margin: 15px 0;
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    .menu-links.active {
+        display: flex;
+    }
+}        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        nav {
+            background-color: #2980b9;
+            color: #ecf0f1;
+            padding: 15px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideInDown 0.8s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        section {
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .person img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .person-info {
+            text-align: left;
+        }
+
+        h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Media query for responsive design */
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="menu-links">
+            <a href="introduction.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section>
+        <h1>Ibrahim</h1>
+        <div class="contact-info">
+            <div class="person">
+                <img src="Ibrahim.jpg" alt="Ahmad's Image">
+                <div class="person-info">
+                    <h3>Name: Ibrahim</h3>
+                    <p><strong>Age:</strong> 54</p>
+                    <p><strong>Origin:</strong> Libya</p>
+                    <p><strong>Time Period in Jordan:</strong> 10 years</p>
+                    <p><strong>Story:</strong>Ibrahim struggles in Jordan and desires to leave at any moment he can. He struggled to put his kids in school until he found CRP which made him and his family feel welcomed and gave his family a sort of education. Nonetheless, although this helped Ibrahim and his family, they still feel left out from everyone else and seem to be uncomfortable when in public often getting asked many questions and getting looks. However, Ibrahim still tries to find the best possible outcomes and solutions for his family and make them happy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

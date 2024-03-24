@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refugee Assistance</title>
     <style>
-        /* Global styles */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
+            position: relative;
         }
 
         nav {
@@ -23,6 +23,21 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: slideInDown 0.8s ease;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         nav a {
@@ -45,6 +60,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             margin: 20px;
             text-align: center;
+            margin-bottom: 100px; /* Added margin to accommodate news ticker */
         }
 
         .menu-toggle {
@@ -65,21 +81,6 @@
             animation: fadeIn 0.8s ease forwards;
         }
 
-        .menu-links.active {
-            display: flex;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -91,156 +92,137 @@
             }
         }
 
-        /* Refugee carousel styles */
-        .refugee-carousel {
+        .menu-links.active {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            opacity: 0; /* Initial opacity set to 0 */
-            visibility: hidden; /* Initial visibility set to hidden */
         }
 
-        .refugee-carousel.show {
-            opacity: 1; /* Change opacity to 1 when shown */
-            visibility: visible; /* Change visibility to visible when shown */
-            animation: fadeIn 0.5s ease forwards; /* Fade-in animation */
-        }
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
 
-        .refugee-carousel.hide {
-            opacity: 0; /* Change opacity to 0 when hidden */
-            visibility: hidden; /* Change visibility to hidden when hidden */
-            animation: fadeOut 0.5s ease forwards; /* Fade-out animation */
-        }
+            .menu-toggle {
+                display: block;
+                margin-right: 20px;
+                color: #ecf0f1;
+            }
 
-        @keyframes fadeIn {
-            from {
+            .menu-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #2980b9;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                animation: slideInDown 0.8s ease;
+            }
+
+            .menu-links a {
+                margin: 15px 0;
                 opacity: 0;
+                animation: fadeIn 0.1s ease forwards;
             }
-            to {
-                opacity: 1;
+
+            .menu-links.active {
+                display: flex;
             }
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-
-        .toggle-button {
+        /* Additional styles for the news ticker */
+        .news-ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #eee;
+            padding: 5px 0;
             position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #2980b9;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .toggle-button:hover {
-            background-color: #3498db;
-        }
-
-        /* Refugee image carousel styles */
-        .carousel-image {
-            position: relative;
-            width: 200px; /* Adjust the width as needed */
-            height: auto;
-        }
-
-        .carousel-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .carousel-caption {
-            position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            width: 100%;
         }
 
-        .carousel-image:hover .carousel-caption {
-            opacity: 1;
+        .news-ticker img {
+            margin-right: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 150px; /* Increased image width */
         }
 
-        /* Hide caption initially */
-        .carousel-image:not(:hover) .carousel-caption {
-            display: none;
+        .news-ticker img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hide the news ticker */
+        #toggle-ticker {
+            cursor: pointer;
+            color: #2980b9;
+            margin: auto;
+            text-align: center;
+            position: fixed;
+            bottom: 170px; /* Adjusted bottom position */
+            left: 0;
+            right: 0;
+            width: fit-content;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
+<head>
 </head>
 <body>
 
-    <nav>
-        <div class="menu-toggle">&#9776;</div>
-        <div class="menu-links">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Services</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
-
-    <section>
-        <h1>Welcome to Refugee Assistance</h1>
-        <p>This is a platform dedicated to helping refugees find support and resources.</p>
-    </section>
-
-    <!-- Toggle button to show/hide carousel -->
-    <button class="toggle-button" onclick="toggleCarousel()">Show Refugee Carousel &#9660;</button>
-
-    <!-- Refugee image carousel -->
-    <div class="refugee-carousel hide">
-        <div class="carousel-image">
-            <img src="refugee1.jpg" alt="Refugee 1">
-            <p class="carousel-caption">Caption 1</p>
-        </div>
-        <div class="carousel-image">
-            <img src="refugee2.jpg" alt="Refugee 2">
-            <p class="carousel-caption">Caption 2</p>
-        </div>
-        <div class="carousel-image">
-            <img src="refugee3.jpg" alt="Refugee 3">
-            <p class="carousel-caption">Caption 3</p>
-        </div>
+<nav>
+    <div class="menu-toggle">&#9776;</div>
+    <div class="menu-links">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="contact.html">Contact</a>
     </div>
+</nav>
 
-    <script>
-        function toggleCarousel() {
-            const carousel = document.querySelector('.refugee-carousel');
-            const toggleButton = document.querySelector('.toggle-button');
+<section>
+    <h1>Welcome to Refugee Assistance</h1>
+    <p>This is a platform dedicated to helping refugees find support and resources.</p>
+</section>
 
-            carousel.classList.toggle('show');
-            carousel.classList.toggle('hide');
+<!-- Toggle button to show/hide news ticker -->
+<div id="toggle-ticker">Hide News Ticker</div>
 
-            toggleButton.textContent = carousel.classList.contains('hide') ? 'Show Refugee Carousel \u25BC' : 'Hide Refugee Carousel \u25B2';
+<!-- News Ticker Container -->
+<div class="news-ticker">
+    <marquee behavior="scroll" direction="left">
+        <a href="AhmdaSabriKareem.html"><img src="Ahmda Sabri Kareem.jpg" alt="News Image 1"></a>
+        <a href="Maryam.html"><img src="Maryam.jpg" alt="News Image 2" style="width: 110px;"></a>
+        <a href="Radwan.html"><img src="Radwan.jpg" alt="News Image 3"></a>
+        <a href="Noor.html"><img src="Noor.jpg" alt="News Image 3"></a>
+        <a href="Ibrahim.html"><img src="Ibrahim.jpg" alt="News Image 2" style="width: 110px;"></a>
+
+        <!-- Add more images as needed -->
+    </marquee>
+</div>
+
+<script>
+    // JavaScript to toggle visibility of news ticker
+    const toggleButton = document.getElementById('toggle-ticker');
+    const tickerContainer = document.querySelector('.news-ticker');
+
+    toggleButton.addEventListener('click', function() {
+        if (tickerContainer.style.display === 'none') {
+            tickerContainer.style.display = 'block';
+            toggleButton.textContent = 'Hide News Ticker';
+        } else {
+            tickerContainer.style.display = 'none';
+            toggleButton.textContent = 'Show News Ticker';
         }
-    </script>
+    });
+</script>
 
 </body>
 </html>
+
