@@ -9,7 +9,7 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: hidden; /* Disable scrolling */
         }
 
         section {
@@ -19,8 +19,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            transition: transform 0.1s ease;
             position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* Add transition */
         }
 
         .main-section {
@@ -37,114 +38,89 @@
             margin-bottom: 20px;
         }
 
-        .arrow {
-            position: absolute;
-            bottom: 20px;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 30px solid red; /* Changed border-top for downward arrow */
-            animation: flicker 1s infinite alternate, moveUpDown 1s infinite;
-        }
-
-        @keyframes flicker {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes moveUpDown {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(10px); /* Changed translateY to make it move down */
-            }
-        }
-
         .skip-button {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px; /* Updated to bottom left corner */
             background-color: #2980b9;
             color: #fff;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            display: none;
             cursor: pointer;
+        }
+
+        .next-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Show section with opacity transition */
+        section.show {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <section class="main-section">
+    <section class="main-section show"> <!-- Add "show" class to the initial section -->
         <h1>Welcome to Our Website</h1>
         <p>We strive to provide valuable information and services to our visitors.</p>
-        <div class="arrow"></div>
         <a href="introduction.html" class="skip-button">Skip to Introduction</a>
     </section>
 
     <section class="scroll-section" id="mission-section">
         <h2>Our Mission</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed at ante ut elit ultrices interdum.</p>
-        <div class="arrow"></div>
         <a href="introduction.html" class="skip-button">Skip to Introduction</a>
     </section>
 
     <section class="scroll-section" id="services-section">
         <h2>Services</h2>
         <p>Explore our range of services designed to meet your needs and expectations.</p>
-        <div class="arrow"></div>
         <a href="introduction.html" class="skip-button">Skip to Introduction</a>
     </section>
 
     <section class="scroll-section" id="contact-section">
         <h2>Contact Us</h2>
         <p>Feel free to reach out to us for any inquiries or assistance. We're here to help!</p>
-        <div class="arrow"></div>
         <a href="introduction.html" class="skip-button">Skip to Introduction</a>
     </section>
 
+    <a href="#" class="next-button" id="nextButton">Next</a>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            const skipButtons = document.querySelectorAll('.skip-button');
+        const sections = document.querySelectorAll('section'); // Get all sections
+        let currentSectionIndex = 0; // Initialize current section index
 
-            window.addEventListener('wheel', function(e) {
-                if (e.deltaY > 0) {
-                    sections.forEach((section, index) => {
-                        const rect = section.getBoundingClientRect();
-                        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                            const nextSection = sections[index + 1];
-                            if (nextSection) {
-                                nextSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                    });
-                } else if (e.deltaY < 0) {
-                    sections.forEach((section, index) => {
-                        const rect = section.getBoundingClientRect();
-                        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                            const prevSection = sections[index - 1];
-                            if (prevSection) {
-                                prevSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                    });
-                }
-            });
+        // Function to show the next section
+        function showNextSection() {
+            sections[currentSectionIndex].classList.remove('show'); // Remove "show" class from current section
+            currentSectionIndex = (currentSectionIndex + 1) % sections.length; // Increment current section index
+            sections[currentSectionIndex].classList.add('show'); // Add "show" class to next section
+            sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' }); // Smoothly scroll to next section
+        }
 
-            window.addEventListener('scroll', function() {
-                const currentScroll = window.scrollY;
-                skipButtons.forEach(button => {
-                    button.style.display = currentScroll > window.innerHeight ? 'block' : 'none';
-                });
+        // Add click event listener to the Next button
+        document.getElementById('nextButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            showNextSection(); // Call showNextSection function
+        });
+
+        // Add click event listener to Skip to Introduction buttons
+        const skipButtons = document.querySelectorAll('.skip-button');
+        skipButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = this.getAttribute('href'); // Redirect to the href attribute of the clicked button
             });
         });
     </script>
