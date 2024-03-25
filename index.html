@@ -13,7 +13,7 @@
         }
 
         section {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,6 +48,7 @@
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
+            z-index: 100; /* Ensure skip button appears above content */
         }
 
         .next-button {
@@ -66,6 +67,22 @@
         /* Show section with opacity transition */
         section.show {
             opacity: 1;
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .skip-button, .next-button {
+                font-size: 14px;
+            }
         }
     </style>
 </head>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refugee Assistance</title>
     <style>
+        
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -177,8 +178,8 @@
 <body>
 
 <nav>
-    <div class="menu-toggle">&#9776;</div>
-    <div class="menu-links">
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-links" id="menuLinks">
         <a href="#">Home</a>
         <a href="#">About Us</a>
         <a href="https://www.collateralrepairproject.org/">Fund CRP</a>
@@ -196,12 +197,13 @@
 
 <!-- News Ticker Container -->
 <div class="news-ticker">
-    <marquee behavior="scroll" direction="left">
+    <marquee behavior="scroll" direction="left" scrollamount="35">
         <a href="AhmdaSabriKareem.html"><img src="Ahmda Sabri Kareem.jpg" alt="News Image 1"></a>
         <a href="Maryam.html"><img src="Maryam.jpg" alt="News Image 2" style="width: 110px;"></a>
         <a href="Radwan.html"><img src="Radwan.jpg" alt="News Image 3"></a>
         <a href="Noor.html"><img src="Noor.jpg" alt="News Image 3"></a>
-        <a href="Ibrahim.html"><img src="Ibrahim.jpg" alt="News Image 2" style="width: 110px;"></a>
+        <a href="Ibrahim.html"><img src="Ibrahim.jpg" alt="News Image 2" style="width: 120px;"></a>
+        <a href="Diya.html"><img src="Diya.jpg" alt="News Image 2" style="width: 120px;"></a>
 
         <!-- Add more images as needed -->
     </marquee>
@@ -218,9 +220,19 @@
             toggleButton.textContent = 'Hide News Ticker';
         } else {
             tickerContainer.style.display = 'none';
-            toggleButton.textContent = 'Show News Ticker';
+            toggleButton.textContent =            'Show News Ticker';
         }
     });
+
+    // JavaScript to toggle visibility of menu links on small screens
+    function toggleMenu() {
+        const menuLinks = document.getElementById('menuLinks');
+        if (menuLinks.style.display === 'flex') {
+            menuLinks.style.display = 'none';
+        } else {
+            menuLinks.style.display = 'flex';
+        }
+    }
 </script>
 
 </body>

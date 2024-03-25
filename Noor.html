@@ -3,168 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noor</title>
+    <title>Ahmda Sabri Kareem</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-}
-
-nav {
-    background-color: #2980b9;
-    color: #ecf0f1;
-    padding: 15px 20px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: slideInDown 0.8s ease;
-}
-
-@keyframes slideInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #3498db;
-}
-
-section {
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    text-align: center;
-}
-
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.menu-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-links a {
-    margin: 0 20px;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.menu-links.active {
-    display: flex;
-}
-
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-toggle {
-        display: block;
-        margin-right: 20px;
-        color: #ecf0f1;
-    }
-
-    .menu-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: #2980b9;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        animation: slideInDown 0.8s ease;
-    }
-
-    .menu-links a {
-        margin: 15px 0;
-        opacity: 0;
-        animation: fadeIn 0.8s ease forwards;
-    }
-
-    .menu-links.active {
-        display: flex;
-    }
-}        body {
+        body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
-        }
-
-        nav {
-            background-color: #2980b9;
-            color: #ecf0f1;
-            padding: 15px 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: slideInDown 0.8s ease;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        nav a {
-            color: #ecf0f1;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #3498db;
         }
 
         section {
@@ -189,7 +35,7 @@ section {
 
         .person {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin: 20px;
             padding: 20px;
             border: 1px solid #3498db;
@@ -221,7 +67,13 @@ section {
 
         /* Media query for responsive design */
         @media screen and (max-width: 768px) {
-            nav {
+            .person img {
+                width: 150px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .person {
                 flex-direction: column;
                 align-items: center;
             }
@@ -230,32 +82,42 @@ section {
 </head>
 <body>
 
-    <nav>
-        <div class="menu-toggle">&#9776;</div>
-        <div class="menu-links">
-            <a href="introduction.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+<nav>
+    <div class="menu-toggle">&#9776;</div>
+    <div class="menu-links">
+        <a href="introduction.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
 
-    <section>
-        <h1>Noor</h1>
-        <div class="contact-info">
-            <div class="person">
-                <img src="Noor.jpg" alt="Ahmad's Image">
-                <div class="person-info">
-                    <h3>Name: Noor</h3>
-                    <p><strong>Age:</strong> 13</p>
-                    <p><strong>Origin:</strong> Saudi Arabia</p>
-                    <p><strong>Time Period in Jordan:</strong> 1 years</p>
-                    <p><strong>Story:</strong> Noor came from Saudi Arabia only 1 year ago to Jordan. She enjoys school subjects like English, Arabic, Art, and Math. She desires to grow up and become successful whilst either being a doctor, engineer, or lawyer. Overall, Noor enjoys her time so far in Jordan more than in Saudi Arabia. She has more friends here that she loves more and she enjoys her educational time in Jordan more. 
-                    </p>
-                </div>
+<section>
+    <h1>Noor</h1>
+    <div class="contact-info">
+        <div class="person">
+            <img src="Noor.jpg" alt="Ahmad's Image">
+            <div class="person-info">
+                <h3>Name: Noor</h3>
+                <p><strong>Age:</strong> 13</p>
+                <p><strong>Origin:</strong> Saudi Arabia</p>
+                <p><strong>Time Period in Jordan:</strong> 1 years</p>
+                <p><strong>Story:</strong> Noor came from Saudi Arabia only 1 year ago to Jordan. She enjoys school subjects like English, Arabic, Art, and Math. She desires to grow up and become successful whilst either being a doctor, engineer, or lawyer. Overall, Noor enjoys her time so far in Jordan more than in Saudi Arabia. She has more friends here that she loves more and she enjoys her educational time in Jordan more. 
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    // JavaScript for toggling the menu on small screens
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuLinks = document.querySelector('.menu-links');
+
+    menuToggle.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
