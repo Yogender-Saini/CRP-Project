@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        /* Navigation styles */
+        nav {
+            background-color: #2980b9;
+            color: #ecf0f1;
+            padding: 15px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .menu-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-links a {
+            margin: 0 20px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .menu-links.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-links" id="menuLinks">
+            <a href="introduction.html">Home</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="https://www.collateralrepairproject.org/">Fund CRP</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+<div class="container">
+    <h1>About Us</h1>
+    <p><span class="highlight">Our mission</span> as a group of individuals is to raise awareness for refugees in Amman, Jordan. We aim to shed light on the challenges they face and their resilience in the face of adversity.</p>
+    
+    <p>The crux of our website is to allow viewers to <span class="highlight">visualize</span> what refugee life is like in Amman. Through compelling stories and images, viewers can gain insight into the daily struggles and triumphs of refugees living in the region.</p>
+    
+    <p>Viewers are able to explore the <span class="highlight">emotional stories and careers</span> of refugees that shape their past and present. By showcasing the diversity and talent within the refugee community, we hope to challenge stereotypes and foster empathy.</p>
+    
+    <p><span class="highlight">CRP (Collateral Repair Project)</span> is an organization that has welcomed our group to interview various refugees. CRP provides essential aid, support, and academic opportunities to refugees in Amman. Through their work, refugees find a sense of community and belonging, having their families and friends within the organization.</p>
+</div>
+
+<script>
+    // JavaScript for toggling the menu on small screens
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuLinks = document.querySelector('.menu-links');
+
+    menuToggle.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
