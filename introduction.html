@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refugee Assistance</title>
+    
     <style>
         
         body {
@@ -196,7 +197,7 @@
 </section>
 
 <!-- Toggle button to show/hide news ticker -->
-<div id="toggle-ticker">Hide News Ticker</div>
+<div id="toggle-ticker">Hide Storiess</div>
 
 <!-- News Ticker Container -->
 <div class="news-ticker">
@@ -213,31 +214,50 @@
 </div>
 
 <script>
-    // JavaScript to toggle visibility of news ticker
     const toggleButton = document.getElementById('toggle-ticker');
     const tickerContainer = document.querySelector('.news-ticker');
+    const tickerImages = document.querySelectorAll('.news-ticker img');
+    let isTickerVisible = true;
 
     toggleButton.addEventListener('click', function() {
-        if (tickerContainer.style.display === 'none') {
-            tickerContainer.style.display = 'block';
-            toggleButton.textContent = 'Hide News Ticker';
+        const newsTickerHeight = tickerContainer.clientHeight;
+        const toggleButtonHeight = toggleButton.clientHeight;
+        
+        if (isTickerVisible) {
+            fadeOutImages();
+            setTimeout(() => {
+                tickerContainer.style.bottom = `-${newsTickerHeight}px`;
+                toggleButton.style.bottom = `0`;
+                toggleButton.textContent = 'Show Stories';
+            }, 500); // Adjust timing as needed
         } else {
-            tickerContainer.style.display = 'none';
-            toggleButton.textContent =            'Show News Ticker';
+            tickerContainer.style.bottom = '0';
+            toggleButton.style.bottom = `${newsTickerHeight}px`;
+            fadeInImages();
+            toggleButton.textContent = 'Hide Stories';
         }
+        isTickerVisible = !isTickerVisible;
     });
 
-    // JavaScript to toggle visibility of menu links on small screens
-    function toggleMenu() {
-        const menuLinks = document.getElementById('menuLinks');
-        if (menuLinks.style.display === 'flex') {
-            menuLinks.style.display = 'none';
-        } else {
-            menuLinks.style.display = 'flex';
-        }
+    function fadeOutImages() {
+        tickerImages.forEach(image => {
+            image.style.transition = 'opacity 0.5s ease';
+            image.style.opacity = '0';
+        });
+    }
+
+    function fadeInImages() {
+        tickerImages.forEach(image => {
+            image.style.transition = 'opacity 0.5s ease';
+            image.style.opacity = '1';
+        });
     }
 </script>
 
+
+
 </body>
 </html>
+
+
 
