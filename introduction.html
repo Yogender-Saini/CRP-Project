@@ -6,7 +6,150 @@
     <title>Refugee Assistance</title>
     
     <style>
-        
+                body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        section {
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .person {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .person img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .person-info {
+            text-align: left;
+        }
+
+        h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Media query for responsive design */
+        @media screen and (max-width: 768px) {
+            .person img {
+                width: 150px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .person {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+                body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        section {
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .person {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .person img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .person-info {
+            text-align: left;
+        }
+
+        h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Media query for responsive design */
+        @media screen and (max-width: 768px) {
+            .person img {
+                width: 150px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .person {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -178,16 +321,15 @@
 </head>
 <body>
 
-<nav>
-    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    <div class="menu-links" id="menuLinks">
-        <a href="#">Home</a>
-        <a href="AboutUs.html">About Us</a>
-        <a href="https://www.collateralrepairproject.org/">Fund CRP</a>
-        <a href="contact.html">Contact</a>
-    </div>
-</nav>
-
+    <nav>
+        <div class="menu-toggle">&#9776;</div>
+        <div class="menu-links">
+            <a href="introduction.html">Home</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="https://www.collateralrepairproject.org/">Fund CRP</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
 <section>
     <h1>Welcome to Refugee Assistance</h1>
     <p>CRP also known as collateral repair project is an organization that seeks to bring help to refugees inside of Jordan, Amman. CRP offers the community of refugees a way to process the trauma of displacement. They give opportunities for different income sources and a chance to rebuild their lives for the better. 
@@ -197,23 +339,30 @@
 </section>
 
 <!-- Toggle button to show/hide news ticker -->
-<div id="toggle-ticker">Hide Storiess</div>
+<div id="toggle-ticker">Hide Stories</div>
 
 <!-- News Ticker Container -->
 <div class="news-ticker">
-    <marquee behavior="scroll" direction="left" scrollamount="22.5">
+    <marquee behavior="scroll" direction="left" scrollamount="15.2040">
         <a href="AhmdaSabriKareem.html"><img src="Ahmda Sabri Kareem.jpg" alt="News Image 1"></a>
-        <a href="Maryam.html"><img src="Maryam.jpg" alt="News Image 2" style="width: 110px;"></a>
+        <a href="Maryam.html"><img src="Maryam.jpg" alt="News Image 2" style="width: 120px;"></a>
         <a href="Radwan.html"><img src="Radwan.jpg" alt="News Image 3"></a>
         <a href="Noor.html"><img src="Noor.jpg" alt="News Image 3"></a>
-        <a href="Ibrahim.html"><img src="Ibrahim.jpg" alt="News Image 2" style="width: 120px;"></a>
-        <a href="Diya.html"><img src="Diya.jpg" alt="News Image 2" style="width: 120px;"></a>
+        <a href="Ibrahim.html"><img src="Ibrahim.jpg" alt="News Image 2" style="width: 137px;"></a>
+        <a href="Diya.html"><img src="Diya.jpg" alt="News Image 2" style="width: 130px;"></a>
 
         <!-- Add more images as needed -->
     </marquee>
 </div>
 
 <script>
+        // JavaScript for toggling the menu on small screens
+        const menuToggle = document.querySelector('.menu-toggle');
+    const menuLinks = document.querySelector('.menu-links');
+
+    menuToggle.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
     const toggleButton = document.getElementById('toggle-ticker');
     const tickerContainer = document.querySelector('.news-ticker');
     const tickerImages = document.querySelectorAll('.news-ticker img');
@@ -258,6 +407,5 @@
 
 </body>
 </html>
-
 
 
